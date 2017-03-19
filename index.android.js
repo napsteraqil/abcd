@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
+import { Container, Header, Text, Title, Content, Footer, FooterTab, DeckSwiper, Card, CardItem, Left, Thumbnail, Button, Right, Body, Icon } from 'native-base';
+
 
 
 import {
-  AppRegistry,Text, Image
+  AppRegistry, Image, View
 } from 'react-native';
+const cards = [
+    {
+        text: 'Card One',
+        name: 'One'
+
+    },
+    {
+        text: 'Card Ongge',
+        name: 'Ongge'
+
+    }
+
+];
 export default class mecon extends Component {
     render() {
         return (
@@ -19,14 +33,35 @@ export default class mecon extends Component {
 
                 </Image>
 
-                <Content>
+                <Container>
+                  <View>
+                  <DeckSwiper
+                    dataSource={cards}
+                    renderItem={item =>
+                        <Card style={{ elevation: 3 }}>
+                            <CardItem>
 
-                </Content>
+                                <Text>{item.text}</Text>
+                                <Text note>NativeBase</Text>
+                            </CardItem>
+                            <CardItem>
+
+                            </CardItem>
+                            <CardItem>
+                                <Icon name="ios-heart" style={{ color: '#ED4A6A' }} />
+                                <Text>{item.name}</Text>
+                            </CardItem>
+                        </Card>
+                    }>
+                  </DeckSwiper>
+                </View>
+              </Container>
+
 
                 <Footer>
                     <FooterTab>
                         <Button full style={{backgroundColor: '#DE1B1B'}}>
-                            <Text style={{color: '#FFFFFF',fontFamily: 'Lovelo',fontSize: 20}}>Sign in</Text>
+                            <Text style={{color: '#FFFFFF',fontFamily: 'Lovelo',fontSize: 20}}>SIGN IN</Text>
                         </Button>
                     </FooterTab>
                 </Footer>
@@ -34,4 +69,9 @@ export default class mecon extends Component {
         );
     }
 }
+
+
+
+
+
 AppRegistry.registerComponent('mecon', () => mecon);
